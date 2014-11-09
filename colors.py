@@ -42,17 +42,14 @@ def rgb_trav():
 
     # For each gray number, split the gray number into digits g -> (rx,ry,rz)
     # For each point in the traversal (x,y,z), prepend
-    for i in range(1,4):
+    for i in range(1,6):
         for (rx,ry,rz) in gcs[1:]:
             for (x,y,z) in trav[:8**i]:
-                mx =  1 if x == 0 else ((int)(ceil(log(x+1,2))))
-                my =  1 if y == 0 else ((int)(ceil(log(y+1,2))))
-                mz =  1 if z == 0 else ((int)(ceil(log(z+1,2))))
                 # print rx,ry,rz,"=>",
                 # print x,y,z,"=>",
-                lx = rx << mx
-                ly = ry << my
-                lz = rz << mz
+                lx = rx << i
+                ly = ry << i
+                lz = rz << i
                 # print lx,ly,lz
                 trav.append((x+lx,y+ly,z+lz))
         fig = plt.figure()
