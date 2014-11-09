@@ -42,23 +42,25 @@ def rgb_trav():
 
     # For each gray number, split the gray number into digits g -> (rx,ry,rz)
     # For each point in the traversal (x,y,z), prepend
-    for i in range(3):
+    for i in range(1,4):
         for (rx,ry,rz) in gcs[1:]:
             for (x,y,z) in trav[:8**i]:
-                m =  1 if x == 0 else ((int)(ceil(log(x+1,2))))
-                print rx,ry,rz,"=>",
-                print x,y,z,"=>",
-                lx = rx << m
-                ly = ry << m
-                lz = rz << m
-                print lx,ly,lz
+                mx =  1 if x == 0 else ((int)(ceil(log(x+1,2))))
+                my =  1 if y == 0 else ((int)(ceil(log(y+1,2))))
+                mz =  1 if z == 0 else ((int)(ceil(log(z+1,2))))
+                # print rx,ry,rz,"=>",
+                # print x,y,z,"=>",
+                lx = rx << mx
+                ly = ry << my
+                lz = rz << mz
+                # print lx,ly,lz
                 trav.append((x+lx,y+ly,z+lz))
-            print
+        fig = plt.figure()
+        fig.canvas.set_window_title('Floating')
+        ax = fig.add_subplot(111, projection='3d')
+        ax.plot([t[0] for t in trav], [t[1] for t in trav], [t[2] for t in trav])
+        print len(trav)
 
-    fig = plt.figure()
-    fig.canvas.set_window_title('Floating')
-    ax = fig.add_subplot(111, projection='3d')
-    ax.plot([t[0] for t in trav], [t[1] for t in trav], [t[2] for t in trav])
     plt.show()
 
     return trav
