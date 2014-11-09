@@ -1,17 +1,18 @@
 Hilbert Curve
 =============
 
-3D
---
+[Hilbert Curves](http://en.wikipedia.org/wiki/Hilbert_curve) are space filling
+curves with the provable best loccality characteristics - for example, given
+a two-dimensional Hilbert curve, points that are close by on the plane will be
+close by on the curve as well.
 
-Start with the 3-bit Gray code. In order, these specify the coordinates for
-the first subcube.
+This is an attempt to map the RGB color space onto a 2D plane using Hilbert curves
+so that the transitions between colors are as smooth as posisble - that is, colors
+that are nearby in RGB space will be nearby picture.
 
-To get the second subcube, for each coordinate in the first subcube,
-prepend the digits of the second Gray number. So, for example: if the coordinates
-of the subcube were: 0,1,0 and we wished to find the corresponding coordinate
-in the second subcube, given that the second 3-bit Gray number is 100, prepending
-these gives: 10,01,00 = (2,1,0)
+[Hamilton's paper on the subject](https://www.cs.dal.ca/sites/default/files/technical_reports/CS-2006-07.pdf) is extremely illuminating, and was my primary source for an understanding of the
+ideas involved in higher-dimensional Hilbert curves.
 
-Similarly for the other subcubes. The idea generalizes to higher volume Hilbert
-cubes.
+[The Wikipedia page](http://en.wikipedia.org/wiki/Hilbert_curve) is also a good
+resource, and has a relatively easy-to-understand implementation of the
+coordinate transforms for the 2D curve.
