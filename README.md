@@ -2,12 +2,12 @@ Hilbert Curve
 =============
 
 [Hilbert Curves](http://en.wikipedia.org/wiki/Hilbert_curve) are space filling
-curves with the provable best loccality characteristics - for example, given
+curves with the provable best locality characteristics - for example, given
 a two-dimensional Hilbert curve, points that are close by on the plane will be
 close by on the curve as well.
 
 This is an attempt to map the RGB color space onto a 2D plane using Hilbert curves
-so that the transitions between colors are as smooth as posisble - that is, colors
+so that the transitions between colors are as smooth as possible - that is, colors
 that are nearby in RGB space will be nearby picture.
 
 [Hamilton's paper on the subject](https://www.cs.dal.ca/sites/default/files/technical_reports/CS-2006-07.pdf) is extremely illuminating, and was my primary source for an understanding of the
@@ -35,9 +35,11 @@ distance along the curve, and draws the result as a 2D Hilbert curve.
 
 This picture was created by simply mapping every single color in RGB space to
 a point in the picture plane, no fancy traversals involved.
+
 ![vanillargb](https://cloud.githubusercontent.com/assets/1315728/4998116/52ac4820-69a3-11e4-9874-77f3bb00d603.png)
 
 
 This picture was created by mapping a straight traversal of RGB space to a hilbert
 curve traversal of the picture plane.
+
 ![vanillargbhilbert](https://cloud.githubusercontent.com/assets/1315728/4998126/655aa566-69a3-11e4-9344-55e03d0ad694.png)
