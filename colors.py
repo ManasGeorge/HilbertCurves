@@ -1,17 +1,22 @@
 import matplotlib.pyplot as plt
 import profile
-from multiprocessing import Process,Manager
+from multiprocessing import Pool,Manager
 from mpl_toolkits.mplot3d import Axes3D
+from functools import partial
 from PIL import Image
 from hilbert import *
 
 # Index to color
+def fillColor(color,dim,order,i):
+    color[i] = hilbertIndexInverse(dim,order,i)
+
 def RGBTrav():
-    color = {}
+    manager = Manager()
+    color = manager.dict()
     dim = 3
     order = 8
-    for i in range(2 ** (dim * order)):
-        color[i] = hilbertIndexInverse(dim,order,i)
+    p = Pool(8)
+    p.map(partial(fillColor,color,dim,order), range(2** (dim*order)))
     return color
 
 def makeRGBImageHilbert():
@@ -23,10 +28,13 @@ def makeRGBImageHilbert():
 
     color = RGBTrav()
 
-    for i in range(img.size[0]):
-        for j in range(img.size[1]):
-            hin = hilbertIndex(dim,order,[i,j])
-            pixels[i,j] = (color[hin][0], color[hin][1], color[hin][2])
+    count = 0
+    for i in range(2 ** (order * dim)):
+        coords = hilbertIndexInverse(dim,order,i)
+        if i % (2 ** (order * dim - 5)) == 0:
+            img.save("hilbertRGB" + str(count) + ".png")
+            count = count+1
+        pixels[coords[0],coords[1]] = (color[i][0], color[i][1], color[i][2])
 
     img.save("hilbertRGB.png")
 
@@ -63,6 +71,6 @@ def makeRGBHilbertImage2DVanilla():
 
     img.save("vanillaRGBhilbert.png")
 
-# makeRGBImageHilbert()
+makeRGBImageHilbert()
 # makeRGBImageVanilla()
-makeRGBHilbertImage2DVanilla()
+# makeRGBHilbertImage2DVanilla()
