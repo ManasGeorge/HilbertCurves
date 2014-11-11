@@ -1,7 +1,4 @@
-import matplotlib.pyplot as plt
-import profile
 from multiprocessing import Pool,Manager
-from mpl_toolkits.mplot3d import Axes3D
 from functools import partial
 from PIL import Image
 from hilbert import *
