@@ -7,14 +7,14 @@ from gray import *
 def RGBTrav():
     color = {}
     dim = 3
-    order = 6
+    order = 8
     for i in range(2 ** (dim * order)):
         color[i] = hilbertIndexInverse(dim,order,i)
     return color
 
-def makeImage():
+def makeRGBImage():
     dim = 2
-    order = 9
+    order = 12
 
     img = Image.new('RGB', (2**order, 2**order), "white")
     pixels = img.load()
@@ -29,4 +29,4 @@ def makeImage():
 
     img.save("hilbertRGB.png")
 
-makeImage()
+makeRGBImage()
