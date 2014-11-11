@@ -27,8 +27,17 @@ Last of all, a shout out to [Aldo Cortesi](http://corte.si/), whose implementati
 I found after writing my own. Aldo also produces visualizations for alternative
 traverals of RGB space, wrapping them up in a nice helper program.
 
-Further development fill focus on documenting the code, trying to explain some
+Further development will focus on documenting the code, trying to explain some
 of the math more intuitively, cleaning up the code, and comparing alternative
 traversals of RGB space. I also intend to implement a "sort" feature that
 takes a picture, maps its pixels to a Hilbert Curve in 3D, sorts the pixels by
 distance along the curve, and draws the result as a 2D Hilbert curve.
+
+This picture was created by simply mapping every single color in RGB space to
+a point in the picture plane, no fancy traversals involved.
+![vanillargb](https://cloud.githubusercontent.com/assets/1315728/4998116/52ac4820-69a3-11e4-9874-77f3bb00d603.png)
+
+
+This picture was created by mapping a straight traversal of RGB space to a hilbert
+curve traversal of the picture plane.
+![vanillargbhilbert](https://cloud.githubusercontent.com/assets/1315728/4998126/655aa566-69a3-11e4-9344-55e03d0ad694.png)
