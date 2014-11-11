@@ -16,3 +16,7 @@ ideas involved in higher-dimensional Hilbert curves.
 [The Wikipedia page](http://en.wikipedia.org/wiki/Hilbert_curve) is also a good
 resource, and has a relatively easy-to-understand implementation of the
 coordinate transforms for the 2D curve.
+
+This project was an attempt to traverse the entire RGB space through a Hilbert
+curve in 3 dimensions and then draw the result as a Hilbert Curve in 2 dimension.
+The resulting picture will soon be uploaded.
