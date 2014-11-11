@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import profile
+from multiprocessing import Process,Manager
 from mpl_toolkits.mplot3d import Axes3D
 from PIL import Image
-from gray import *
+from hilbert import *
 
 # Index to color
 def RGBTrav():
