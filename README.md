@@ -11,12 +11,24 @@ so that the transitions between colors are as smooth as posisble - that is, colo
 that are nearby in RGB space will be nearby picture.
 
 [Hamilton's paper on the subject](https://www.cs.dal.ca/sites/default/files/technical_reports/CS-2006-07.pdf) is extremely illuminating, and was my primary source for an understanding of the
-ideas involved in higher-dimensional Hilbert curves.
+ideas involved in higher-dimensional Hilbert curves, although there is a subtle
+bug that trips up implementation.
 
 [The Wikipedia page](http://en.wikipedia.org/wiki/Hilbert_curve) is also a good
 resource, and has a relatively easy-to-understand implementation of the
 coordinate transforms for the 2D curve.
 
 This project was an attempt to traverse the entire RGB space through a Hilbert
-curve in 3 dimensions and then draw the result as a Hilbert Curve in 2 dimension.
-The resulting picture will soon be uploaded.
+curve in 3 dimensions and then draw the result as a Hilbert Curve in 2 dimensions.
+
+![hilbertrgb](https://cloud.githubusercontent.com/assets/1315728/4989633/4b87920c-6949-11e4-9684-6ab5d75757a4.png)
+
+Last of all, a shout out to [Aldo Cortesi](http://corte.si/), whose implementation
+I found after writing my own. Aldo also produces visualizations for alternative
+traverals of RGB space, wrapping them up in a nice helper program.
+
+Further development fill focus on documenting the code, trying to explain some
+of the math more intuitively, cleaning up the code, and comparing alternative
+traversals of RGB space. I also intend to implement a "sort" feature that
+takes a picture, maps its pixels to a Hilbert Curve in 3D, sorts the pixels by
+distance along the curve, and draws the result as a 2D Hilbert curve.
